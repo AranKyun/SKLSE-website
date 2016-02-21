@@ -28,3 +28,4 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::resource('admin/news', 'News\NewsController');
+Route::get('admin/news/{id}/delete', 'News\NewsController@destroy');

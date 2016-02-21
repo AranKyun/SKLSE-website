@@ -17,10 +17,11 @@
 </head>
 <body>
 	<div class="container">
-		<form action="{{ URL('/admin/news') }}" method="POST" >
+		<form action="{{ URL('/admin/news')."/".$news->id }}" method="POST" >
+			<input type="hidden" name="_method" value="PUT">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			<input type="text" name="title">
-			<div id="summernote"></div>
+			<input type="text" name="title" value="{{ $news->title }}">
+			<div id="summernote">{!! str_replace("_public_path/", asset(""), $news->content) !!}</div>
 			<button id="submit">Submit</button>
 			<input type="hidden" name="content" id="content"></form>
 		<script>
