@@ -135,7 +135,7 @@
 					<div class="blockfader">请设置一个新闻</div>
 				</div>
 			</div>
-		@endif
+		@else
 		<?php $num_news = 0;?>
 		@foreach($config->news as $news)
 		@if($num_news < 4)
@@ -160,6 +160,7 @@
 					<div class="blockfader">请设置一个新闻</div>
 				</div>
 			</div>
+		@endif
 		@endif
 
 		</div>
