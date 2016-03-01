@@ -1,0 +1,78 @@
+body{
+	font-family: "微软雅黑";
+}
+
+.top-header{
+	padding: 3px;
+}
+
+.top-header img{
+	padding-top: 13px;
+}
+
+.yuyan{
+	padding-top: 13px;
+	padding-right: 25px;
+	color: #FFF;
+	display: inline-block;
+}
+
+.logo{
+	padding: 8px;
+	
+}
+
+.blue-bar{
+	background-color: #003262;
+}
+
+.header-row{
+	background: #FFF;
+	padding-top: 3px;
+}
+
+.nav-bar{
+	padding-top: 25px;
+	font-size: 20px;
+}
+
+.nav-bar a{
+	padding-top: 18px;
+}
+
+.nav-bar a:link{
+	color: #003262;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color: #003262;
+}
+
+.bottombar{
+	background-color: #1c1e1f;
+	padding-left: 10px;
+}
+
+
+
+.fastlink{
+	color: #d1d4d6;
+	font-size: 15px;
+	padding-top: 5px;
+	padding-bottom: 30px;
+}
+
+.fastlink a:visited{
+	color: #d1d4d6;
+}
+
+.fastlink a:hover{
+	color: #fff;
+}
+
+.bottomlogo{
+	width: 80%;
+	float: right;
+	padding-top: 60px;
+}
