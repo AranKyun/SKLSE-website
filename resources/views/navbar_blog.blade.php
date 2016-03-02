@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>@yield('title')</title>
 	<link rel="stylesheet" href="{{asset("assets/bootstrap/css/bootstrap.min.css")}}">
 	<link rel="stylesheet" href="{{asset("assets/website/navbar.css")}}">
 	<script src="{{asset("assets/jquery.min.js")}}"></script>

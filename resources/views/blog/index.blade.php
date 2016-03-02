@@ -1,8 +1,8 @@
 
-@extends('navbar_blog')
+@extends('navbar')
 
 @section('title')
-基础设施
+个人博客
 @endsection
 
 @section('extra-link')

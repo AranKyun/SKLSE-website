@@ -1,5 +1,7 @@
 @extends('admin.index')
-
+@section('title')
+主页设置
+@endsection
 @section('content')
 <form action="{{ URL('admin/homepage/news') }}" class="form-horizontal" enctype="multipart/form-data" method="POST" id="form-news">
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">

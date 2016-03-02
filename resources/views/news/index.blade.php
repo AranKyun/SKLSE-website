@@ -1,5 +1,7 @@
 @extends('navbar')
-
+@section('title')
+{{$tag_selection}}
+@endsection
 @section('extra-link')
 <link rel="stylesheet" href="{{ asset('assets/website/subpage.css') }}">
 @endsection
@@ -91,7 +93,7 @@ $week_arr = array("日", "一", "二", "三", "四", "五", "六");
 							<div class="trends-tittle">
 								<a href="{{ URL('/news/'.$simple_news->id) }}">{{ $simple_news->title }}</a>
 							</div>
-							<p><small><span>{{ $simple_news->created_at->year."年".$simple_news->created_at->month."月".$simple_news->created_at->day."日 (星期".$week_arr[$simple_news->created_at->dayOfWeek].") " }}</span><a href=""><span class="label label-primary">{{ $simple_news->tag }}</span></a></small></p>
+							<p><small><span>{{ $simple_news->created_at->year."年".$simple_news->created_at->month."月".$simple_news->created_at->day."日 (星期".$week_arr[$simple_news->created_at->dayOfWeek].") " }}</span><a href="{{URL('/news?tag='.$simple_news->tag)}}"><span class="label label-primary">{{ $simple_news->tag }}</span></a></small></p>
 							<div>{{ mb_substr(str_replace('&nbsp;', ' ', strip_tags($simple_news->content)), 0, 100)."..." }}</div>
 						</div>
 					</div>

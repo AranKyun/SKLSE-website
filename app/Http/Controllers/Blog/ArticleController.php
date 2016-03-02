@@ -19,11 +19,10 @@ class ArticleController extends Controller
     public function index($id)
     {
 		//$articles=DB::table('blog_articles')->where('blog_id','=',$id)->paginate(15);
-		if(Auth::user()->tag!='')
+		if(Auth::user()->tag=='teacher')
 		{
 			$user=User::find($id);
 			$blog=$user->blog;
-
 			if (empty($blog)) {
 				# code...
 				$blog=new Blog;
@@ -33,7 +32,7 @@ class ArticleController extends Controller
 			}
 
 			
-			$blog=$user->blog;
+
 			$articles=$blog->articles()->get();
 			$user=User::find($id);
     		$data = array('articles' =>$articles ,'user'=>$user ,'blog'=>$blog);

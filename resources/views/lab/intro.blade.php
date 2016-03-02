@@ -2,7 +2,7 @@
 @extends('navbar')
 
 @section('title')
-实验室概况
+实验室简介
 @endsection
 
 @section('extra-link')
