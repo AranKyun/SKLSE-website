@@ -1,5 +1,7 @@
 @extends('admin.index')
-
+@section('title')
+新闻管理
+@endsection
 @section('content')
 <?php $selected = 1;?>
 <div class="panel panel-default">

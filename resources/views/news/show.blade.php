@@ -1,5 +1,7 @@
 @extends('navbar')
-
+@section('title')
+{{$news->title}}
+@endsection
 @section('extra-link')
 <link rel="stylesheet" href="{{ asset('assets/website/subpage.css') }}">
 @endsection

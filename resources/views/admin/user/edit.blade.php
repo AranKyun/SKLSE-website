@@ -1,5 +1,7 @@
 @extends('admin.index')
-
+@section('title')
+用户编辑
+@endsection
 @section('content')
 <?php $selected = 2;?>
 <div class="panel panel-default">

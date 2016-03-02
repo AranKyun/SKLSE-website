@@ -1,4 +1,7 @@
 @extends("admin.index")
+@section('title')
+添加新闻
+@endsection
 
 @section("extra-head")
 <link rel="stylesheet" href="{{ asset('assets/summernote/summernote.css') }}">

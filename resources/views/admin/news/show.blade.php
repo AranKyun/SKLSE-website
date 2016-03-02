@@ -1,5 +1,7 @@
 @extends('admin.index')
-
+@section('title')
+{{ $news->title }}
+@endsection
 @section('content')
 <?php $selected = 1; ?>
 

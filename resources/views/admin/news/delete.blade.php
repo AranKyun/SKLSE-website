@@ -1,5 +1,7 @@
 @extends("admin.index")
-
+@section('title')
+删除新闻
+@endsection
 @section("content")
 <?php $selected = 1; ?>
 <ol class="breadcrumb">

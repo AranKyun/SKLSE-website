@@ -1,4 +1,7 @@
 @extends('navbar')
+@section('title')
+SKLSE软件工程国家重点实验室
+@endsection
 @section('extra-link')
 <link rel="stylesheet" href="{{ asset('assets/website/homepage.css') }}">
 <script src="{{ asset('assets/jquery-migrate-1.2.1.js') }}"></script>

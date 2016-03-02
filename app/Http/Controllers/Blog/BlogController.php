@@ -22,7 +22,7 @@ class BlogController extends Controller
     public function index()
     {
     	$users=DB::table('users')->where('tag','=','teacher')->paginate(15);
-    	return view('blog.index')->withUsers($users);
+    	return view('blog.index')->withUsers($users)->withNavSelection(-1);
     }
     
     public function home($id)
