@@ -80,7 +80,7 @@
 					&nbsp;{{$singlearticle->title}}
 				</div>
 				<div class="bbsubtittle">{{$singlearticle->created_at}}</div>
-				<div class="bbabstract">此处应有文章摘要，然而还没做出来</div>
+				<div class="bbabstract">{{ mb_substr(str_replace('&nbsp;', ' ', strip_tags($singlearticle->content)), 0, 100)."..." }}</div>
 				<hr class="smaller">
 				<a href="{{URL('/blog/'.$data['user']['id'].'/home/'.$singlearticle->id)}}" class="aticlemore">点击查看更多>></a>
 				@endforeach

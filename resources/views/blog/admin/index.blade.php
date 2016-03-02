@@ -89,7 +89,7 @@
           &nbsp;{{ $article->title }}
         </div>
         <div class="bbsubtittle">{{ $article->created_at }}</div>
-        <div class="bbabstract">此处应有博文简介，但是还没有实现</div>
+        <div class="bbabstract">{{ mb_substr(str_replace('&nbsp;', ' ', strip_tags($article->content)), 0, 100)."..." }}</div>
         <hr class="smaller">
         <a href="{{URL('/blog/'.$data['user']['id'].'/admin/'.$article->id )}}" class="aticlemore">点击查看更多>></a>
       </div>
