@@ -14,7 +14,7 @@
 		<div class="container">
 			<span class="glyphicon glyphicon-education right-padding"></span>
 			<span>SKLSE Administration Control Panel</span>
-			<a href="#" class="return-btn">退出返回主页</a>
+			<a href="{{URL('/')}}" class="return-btn">退出返回主页</a>
 		</div>
 	</div>
 	<div class="container">

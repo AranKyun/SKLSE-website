@@ -82,8 +82,8 @@ $week_arr = array("日", "一", "二", "三", "四", "五", "六");
 					<div class="newsblock">
 					<div class="blockcover">
 						<div class="all-viewblock text-right">
-							<span class="viewblock-a">2048</span>
-							<span class="viewblock-b">浏览量</span>
+							<div class="viewblock-a">{{$simple_news->visit}}</div>
+							<div class="viewblock-b">浏览量</div>
 						</div>
 					</div>
 
