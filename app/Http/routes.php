@@ -76,6 +76,8 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('/news/{id}/delete', 'NewsController@delete');
 		Route::get('/user', 'UserController@index');
 		Route::get('/user/reset', 'UserController@reset');
+		Route::get('/user/{id}/edit', 'UserController@edit');
+		Route::post('user/{id}', 'UserController@store');
 	});
 
 	//个人博客

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Http\Request;
 use Redirect;
 use Validator;
 
@@ -39,5 +40,19 @@ class UserController extends Controller {
 		}
 
 		return Redirect::to('/');
+	}
+
+	public function edit($id) {
+		return view('admin.user.edit')->withUser(User::find($id));
+	}
+
+	public function store(Request $request, $id) {
+		$user = User::find($id);
+		$user->tag = $request->input('tag');
+		if ($user->save()) {
+			return Redirect::to('/admin/user');
+		} else {
+			return Redirect::back()->withInput();
+		}
 	}
 }
