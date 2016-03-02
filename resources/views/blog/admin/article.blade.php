@@ -1,79 +1,130 @@
-@extends('_layouts.default')
+@extends('layouts.blog')
+@section('title')
+{{$data['user']['name']}}的博客
+@endsection
+
+@section('host')
+{{$data['user']['name']}}
+@endsection
 
 @section('content')
+<table class="container blog-table">
+  <tr class=" blog-block-dark">
+    <td class="col-sm-3" style='height:60%;'>
+      <div class="blog-block-box" style="padding:30px;">
+        @if($data['blog']->icon!='')
+        <img src="/assets/images/icon/{{$data['blog']['icon']}}" class="img-circle center-block" style="width:200px;height:200px">
+        @else
+        <img src="/assets/images/website/default_user.jpg" class="img-circle center-block" style="width:200px;height:200px">
+        @endif
+        <h3 class="text-center"> <strong>{{$data['user']['name']}}</strong>
+        </h3>
+      </div>
+      <div class="blog-block-line">
+        <div class="info text-center">
+          <p>性别：{{$data['blog']['sex']}}</p>
+          <p>邮箱：{{$data['user']['email']}}</p>
+          <p>{{$data['blog']['introduction']}}</p>
+        </div>
 
-  <h1 style="text-align: center; margin-top: 50px;">{{ $data['article']->title }}</h1>
-  <hr>
-  <div id="date" style="text-align: right;">
-    {{ $data['article']->updated_at }}
-  </div>
-  <div id="content" style="padding: 50px;">
-    <p>
-      {!! str_replace("_public_path/", asset(""), $data['article']->content); !!}
-    </p>
-  </div>
-  <div id="comments" style="margin-bottom: 100px;">
+        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
+          <a href="{{URL('/blog/'.$data['user']['id'].'/admin')}}">
+            <ul>
+              <span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span> <font style="font-family:微软雅黑; font-size:16px"><b>主页</b></font> 
 
-    @if (count($errors) > 0)
+            </ul>
+          </a>
+        </div>
+        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
+          <a href="{{URL('/blog/'.$data['user']['id'].'/admin/list')}}">
+            <ul>
+              <span class="glyphicon glyphicon-tasks" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span> <font style="font-family:微软雅黑; font-size:16px"><strong>文章列表</strong></font> 
+
+            </ul>
+          </a>
+        </div>
+
+        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
+
+          <a href="{{URL('/blog/'.$data['user']['id'].'/admin/uploads')}}">
+            <ul>
+              <span class="glyphicon glyphicon-arrow-up" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span>
+              <font style="font-family:微软雅黑; font-size:16px">
+                <strong>上传中心</strong>
+              </font>
+
+            </ul>
+          </a>
+        </div>
+        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
+
+          <a href="{{URL('/blog/'.$data['user']['id'].'/admin/set')}}">
+            <ul>
+              <span class="glyphicon glyphicon-cog" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span>
+              <font style="font-family:微软雅黑; font-size:16px">
+                <strong>个人设置</strong>
+              </font>
+
+            </ul>
+          </a>
+        </div>
+      </div>
+    </td>
+    <td class="col-sm-9">
+      <div class="blog-block-light" style="box-shadow: 0 0 4px #777; padding-left: 15px;">
+        <h4>
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          &nbsp;文章正文
+        </h4>
+      </div>
+
+      <div class="blog-block-article">
+        <div class="bbtittle">{{ $data['article']->title }}</div>
+        <div class="bbsubtittle">{{ $data['article']->created_at }}</div>
+        <div class="bbabstract">
+          {!! str_replace("_public_path/", asset(""), $data['article']->content); !!}
+        </div>
+      </div>
+      @if (count($errors) > 0)
       <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>Whoops!</strong>
+        There were some problems with your input.
+        <br>
+        <br>
         <ul>
           @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+          <li>{{ $error }}</li>
           @endforeach
         </ul>
       </div>
-    @endif
-    
-    <div class="conmments" style="margin-top: 100px;">
-      @foreach ($data['article']->comments as $comment)
+      @endif
 
-        <div class="one" style="border-top: solid 20px #efefef; padding: 5px 20px;">
-          <div class="username" data="{{ $comment->username }}">
-            <h3>{{ $comment->username }}</h3>
-            <h6>{{ $comment->created_at }}</h6>
-          </div>
-          <div class="content">
-            <p style="padding: 20px;">
-              {{ $comment->content }}
-            </p>
-          </div>
-          <div class="reply" style="text-align: right; padding: 5px;">
-            <a href="#new" onclick="reply(this);">回复</a>
-          </div>
-        </div>
+    @foreach ($data['article']->comments as $comment)
+      <div class="blog-block-article" style="padding: 10px 20px">
 
+        <p style="font-size: 15px; color: #233;">{{ $comment->username }}</p>
+        <p style="color: #999; font-size: 10px; padding-top: 0px;">{{ $comment->created_at }}</p>
+        <p style="padding-right: 30px; font-size: 17px;">{{ $comment->content }}</p>
+      </div>
       @endforeach
-    </div>
-  </div>
-
-
-    <div id="new">
-      <form action="{{ URL('blog/'.$data['id'].'/home/'.$data['article']->id.'/comment') }}" method="POST">
+      <form method="POST" action="{{URL('blog/'.$data['user']['id'].'/home/'.$data['article']['id'].'/comment')}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="article_id" value="{{ $data['article']->id }}">
-        <div class="form-group">
-          <label>Nickname</label>
-          <input type="text" name="username" class="form-control" style="width: 300px;" required="required">
+        <input type="hidden" name="article_id" value="{{ $data['article']->
+        id }}">
+        <div class="blog-block-article">
+          <div class="bbtittle">
+            <span  class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+            &nbsp;评论
+          </div>
+          <div class="stayaway" style="padding: 5px 20px 5px 20px;">
+            <textarea name="content" class="form-control" rows="3"></textarea>
+          </div>
+          <div class="stayaway" style="padding: 10px 20px 10px;">
+            <input class="btn btn-default" type="submit" value="提交评论"></div>
         </div>
-        <div class="form-group">
-          <label>Email address</label>
-          <input type="email" name="email" class="form-control" style="width: 300px;">
-        </div>
-        <div class="form-group">
-          <label>Content</label>
-          <textarea name="content" id="newFormContent" class="form-control" rows="10" required="required"></textarea>
-        </div>
-        <button type="submit" class="btn btn-lg btn-success col-lg-12">Submit</button>
       </form>
-    </div>
+    </td>
 
-<script>
-function reply(a) {
-  var nickname = a.parentNode.parentNode.firstChild.nextSibling.getAttribute('data');
-  var textArea = document.getElementById('newFormContent');
-  textArea.innerHTML = '@'+nickname+' ';
-}
-</script>
-
-
+  </tr>
+</table>
+@endsection

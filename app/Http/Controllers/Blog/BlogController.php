@@ -17,6 +17,8 @@ use Auth;
 class BlogController extends Controller
 {
     //
+
+
     public function index()
     {
     	$users=DB::table('users')->where('tag','=','teacher')->paginate(15);
@@ -32,12 +34,31 @@ class BlogController extends Controller
         }
         $user=User::find($id);
         $blog=User::find($id)->blog;
+        if (!empty($blog)) 
+        {        
         $articles=$blog->articles()->get();
         $data = array('articles' =>$articles ,'user'=>$user,'blog'=>$blog );
 
         return view('blog.home')->with('data',$data);
+        }
+
+        else{
+            return "该用户尚未开通博客";
+        }
 
     }
+
+
+    public function alist($id)
+    {
+        $user=User::find($id);
+        $blog=$user->blog;
+        $articles=$blog->articles()->get();
+        $data = array('user' =>$user ,'blog'=>$blog ,'articles'=>$articles);
+        return view('blog.list')->withData($data);
+    }
+
+
 
 
      public function show($id,$article_id)
@@ -60,14 +81,16 @@ class BlogController extends Controller
         $articles=DB::table('blog_articles')->where('blog_id','=',$blog->id)->where('title','like','%'.$search['searchtit'].'%')->paginate(15);
        // return $articles;
         //$data = array('id' => $user->id,'articles',$articles);
-        return view('blog.search')->with('id',$user->id)->with('articles',$articles);
+        $data = array('user' => $user,'blog'=>$blog );
+        return view('blog.search')->with('id',$user->id)->with('articles',$articles)->with('data',$data);
     }
 
 
     public function set($id){
         $user=User::find($id);
         $blog=$user->blog;
-        return view('blog.admin.set')->withUser($user)->withBlog($blog);
+        $data = array('user' => $user,'blog'=>$blog );
+        return view('blog.admin.set')->withData($data);
     }
 
     public function setstore(Request $request,$id){
@@ -125,6 +148,8 @@ class BlogController extends Controller
         }
 
     }
+
+
 
     
 }

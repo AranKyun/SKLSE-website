@@ -62,32 +62,36 @@
         </div>
       </div>
     </td>
+
     <td class="col-sm-9">
       <div class="blog-block-light" style="box-shadow: 0 0 4px #777; padding-left: 15px;">
         <h4>
-          <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
-          &nbsp;搜索结果
+          <span class="glyphicon glyphicon glyphicon-th-list" aria-hidden="true"></span>
+          &nbsp;文章列表
         </h4>
       </div>
-      @if(count($articles)>0)
-        @foreach($articles as $article)
-      <div class="blog-block-article">
-        <div class="bbtittle">
-          <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-          &nbsp;{{$article->title}}
+
+      <div >
+        @if(count($data['articles'])
+        <=0)
+          <div class="list-article">
+          <div class="onelist">
+            <span class="list-tittle">暂无博文</span>
+          </div>
         </div>
-        <div class="bbsubtittle">{{$article->created_at}}</div>
-        <div class="bbabstract">此处应有文章简介，然而还没有实现</div>
-        <hr class="smaller">
-        <a href="{{url('/blog/'.$id.'/home/'.$article->id)}}" class="aticlemore">点击查看更多>></a>
-      </div>
-      @endforeach
         @else
-      <div class="bbtittle">
-        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-        &nbsp;暂无相关博文
+         @foreach($data['articles'] as $article)
+        <div class="list-article">
+          <div class="onelist">
+            <span class="list-tittle">
+              <a href="/blog/{{$data['user']['id']}}/home/{{$article->id}}">{{$article->title}}</a>
+            </span>
+            <span class="list-date">{{$article->created_at}}</span>
+          </div>
+        </div>
+        @endforeach
+          @endif
       </div>
-      @endif
     </td>
   </tr>
 </table>

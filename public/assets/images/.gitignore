@@ -1,4 +1,6 @@
 * 
 !.gitignore
 !/news
+!/icon
+!/articles
 !/website
