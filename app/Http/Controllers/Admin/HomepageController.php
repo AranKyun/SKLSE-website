@@ -23,6 +23,8 @@ class HomepageController extends Controller {
 			$config = array('news' => null, 'spotlights' => null, 'blogs' => null);
 			fwrite($file, json_encode($config));
 			fclose($file);
+
+			$config = json_decode(json_encode($config));
 		}
 
 		return view('admin.homepage')->withConfig($config)->withSelected(0);
@@ -54,7 +56,7 @@ class HomepageController extends Controller {
 
 				$newName = md5(date('ymdhis') . $clientName) . '.' . $extension;
 
-				$file->move(public_path() . "/assets/images/website", $newName);
+				$file->move(public_path() . "/assets/images/website/Uploaded", $newName);
 				$obj['imgFilename'] = $newName;
 			}
 			$newconfig->news[$newsid] = $obj;

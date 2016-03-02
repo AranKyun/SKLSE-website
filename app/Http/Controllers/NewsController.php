@@ -17,6 +17,9 @@ class NewsController extends Controller {
 	}
 
 	public function show($id) {
-		return view('news.show')->withNavSelection(3)->withTagSelection(-1)->withNews(News::find($id));
+		$news = News::find($id);
+		$news->visit++;
+		$news->save();
+		return view('news.show')->withNavSelection(3)->withTagSelection(-1)->withNews($news);
 	}
 }

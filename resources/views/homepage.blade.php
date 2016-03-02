@@ -15,7 +15,7 @@
 			@foreach($config->news as $news)
 			@if($news->isCarousel == true)
 			<?php $num_carousel++;?>
-			<div class="imgviewer-img" src="{{ asset('assets/images/website/'.$news->imgFilename) }}"></div>
+			<div class="imgviewer-img" src="{{ asset('assets/images/website/Uploaded/'.$news->imgFilename) }}"></div>
 			@endif
 			@endforeach
 			@if($num_carousel == 0)
@@ -142,7 +142,7 @@
 		@if($news->isCarousel == false)
 		<?php $num_news++;?>
 		<div class="col-sm-6">
-			<div class="slide-block center-block" style="background-image: url({{ asset('assets/images/website/'.$news->imgFilename) }});">
+			<div class="slide-block center-block" style="background-image: url({{ asset('assets/images/website/Uploaded/'.$news->imgFilename) }});">
 					<div class="blockfader">{{ $news->text }}</div>
 				</div>
 		</div>

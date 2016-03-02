@@ -9,6 +9,7 @@
 	<script src="{{asset("assets/bootstrap/js/bootstrap.min.js")}}"></script>
 	@yield('extra-link')
 </head>
+<?php use Illuminate\Support\Facades\Auth;?>
 <body>
 <div class="blue-bar">
 		<div class="container">
@@ -26,7 +27,15 @@
 							<button type="button" class="btn btn-default" aria-label="Left Align">
 								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 							</button>
+							@if(Auth::check())
+							<span class="login">你好，{{ Auth::user()->name }}</span><a href="{{URL('/logout')}}" class="login">登出</a>
+							@else
+							<a href="{{ URL('/login') }}" class="login">用户登录</a>
+							@endif
+
+
 						</form>
+
 					</div>
 				</div>
 			</div>

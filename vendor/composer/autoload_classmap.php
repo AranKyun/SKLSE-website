@@ -6,6 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddVisitToNews' => $baseDir . '/database/migrations/2016_03_02_032841_add_visit_to_news.php',
+    'AdminAcountSeeder' => $baseDir . '/database/seeds/AdminAcountSeeder.php',
+    'CreatBlogCommentsTable' => $baseDir . '/database/migrations/2016_02_23_135132_creat_blog_comments_table.php',
+    'CreateBlogArticlesTable' => $baseDir . '/database/migrations/2016_02_23_083337_create_blog_articles_table.php',
+    'CreateBlogsTable' => $baseDir . '/database/migrations/2016_02_26_122813_create_blogs_table.php',
+    'CreateFilesTable' => $baseDir . '/database/migrations/2016_02_25_075931_create_files_table.php',
     'CreateNewsTable' => $baseDir . '/database/migrations/2016_02_12_132236_create_news_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
