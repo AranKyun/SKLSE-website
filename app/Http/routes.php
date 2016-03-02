@@ -86,7 +86,7 @@ Route::group(['middleware' => 'web'], function () {
 
 		//user blog homepage
 		Route::get('/{id}/home', 'BlogController@home')->where('id', '[0-9]+');
-		Route::get('/{id}/home/articles', 'BlogController@list')->where('id', '[0-9]+');
+		Route::get('/{id}/home/articles', 'BlogController@alist')->where('id', '[0-9]+');
 		//search blog articles by title
 		Route::get('/{id}/home/search', 'BlogController@search')->where('id', '[0-9]+');
 
@@ -109,7 +109,7 @@ Route::group(['middleware' => 'web'], function () {
 			Route::resource('/{id}/admin/uploads', 'UploadController');
 
 			//blog articles&comment
-
+			Route::get('{id}/admin/list', 'ArticleController@alist')->where('id', '[0-9]+');
 			Route::resource('/{id}/admin', 'ArticleController');
 			Route::resource('/{id}/admin/{article_id}', 'ArticleController@show');
 		});

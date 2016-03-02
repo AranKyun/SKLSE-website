@@ -22,9 +22,9 @@ class ArticleController extends Controller
 		if(Auth::user()->tag!='')
 		{
 			$user=User::find($id);
-			$blog=User::find($id)->blog()->get();
+			$blog=$user->blog;
 
-			if (checkArray($blog)) {
+			if (empty($blog)) {
 				# code...
 				$blog=new Blog;
 				$blog->name=$user->name;
@@ -32,7 +32,8 @@ class ArticleController extends Controller
 				$blog->save();
 			}
 
-			$blog=User::find($id)->blog;
+			
+			$blog=$user->blog;
 			$articles=$blog->articles()->get();
 			$user=User::find($id);
     		$data = array('articles' =>$articles ,'user'=>$user ,'blog'=>$blog);
@@ -49,7 +50,9 @@ class ArticleController extends Controller
     public function create($id) {
 
     	$user=User::find($id);
-		return view('blog.admin.create')->with('user',$user);
+		$blog=$user->blog;
+		$data = array('user' =>$user ,'blog'=>$blog );
+		return view('blog.admin.create')->withData($data);
 	}
 
 	public function store(Request $request) {
@@ -101,8 +104,10 @@ class ArticleController extends Controller
 	}
 
 	public function edit($id,$article_id) {
+		$user=User::find($id);
+		$blog=$user->blog;
 		$article = BlogArticle::find($article_id);
-		$data = array('id' => $id,'article'=>$article );
+		$data = array('id' => $id,'article'=>$article,'user'=>$user,'blog'=>$blog );
 		return view('blog.admin.edit')->withData($data);
 	}
 
@@ -171,8 +176,10 @@ class ArticleController extends Controller
 
 	public function show($id,$article_id)
 	{
+		$user=User::find($id);
+		$blog=$user->blog;
 		$article=BlogArticle::find($article_id);
-        $data = array('article' =>$article,'id'=>$id);
+        $data = array('article' =>$article,'id'=>$id,'user'=>$user,'blog'=>$blog);
         return view('blog.admin.article')->with('data',$data);
 	}
 
@@ -185,6 +192,15 @@ class ArticleController extends Controller
         $comment->article_id=$request->input('article_id');
         $comment->save();
         return Redirect::back();
+    }
+
+    public function alist($id)
+    {
+    	$user=User::find($id);
+        $blog=$user->blog;
+        $articles=$blog->articles()->get();
+        $data = array('user' =>$user ,'blog'=>$blog ,'articles'=>$articles);
+        return view('blog.admin.list')->withData($data);
     }
 
 

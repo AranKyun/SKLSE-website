@@ -23,7 +23,7 @@ class DownloadController extends Controller
     	$blog=$user->blog;
     	$files= $blog->files()->get();
     	//$files= DB::table('files')->where('blog_id','=',$id)->paginate(15);
-    	$data = array('id' => $id,'files'=>$files );
+    	$data = array('id' => $id,'files'=>$files,'user'=>$user,'blog'=>$blog );
 
     	return view('blog.download')->with('data',$data);
     }

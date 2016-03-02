@@ -1,41 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>Document</title>
+@extends('layouts.blog')
+@section('title')
+{{$data['user']['name']}}的博客
+@endsection
 
-	<!-- 新 Bootstrap 核心 CSS 文件 -->
-	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+@section('head')
+<link rel="stylesheet" href="{{ asset('assets/summernote/summernote.css') }}" />
+<script src="{{ asset('assets/summernote/summernote.js') }}"></script>
+@endsection
 
-	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-	<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+@section('host')
+{{$data['user']['name']}}
+@endsection
 
-	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="{{ asset('assets/summernote/summernote.css') }}" />
-	<script src="{{ asset('assets/summernote/summernote.js') }}"></script>
-</head>
-<body>
-	<div class="container">
-		<form action="{{ URL('/blog/'.$data['id'].'/admin/'.$data['article']->id )}}" method="POST" >
-			<input type="hidden" name="_method" value="PUT">
-			<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			<input type="hidden" name="user_id" value="{{ $data['id'] }}">
-			<input type="text" name="title" value="{{ $data['article']->title }}">
-			<div id="summernote">{!! str_replace("_public_path/", asset(""), $data['article']->content) !!}</div>
-			<button id="submit">Submit</button>
-			<input type="hidden" name="content" id="content"></form>
-		<script>
-		$(function(){
-			$('#summernote').summernote();
+@section('content')
+<table class="container blog-table">
+  <tr class=" blog-block-dark">
+    <td class="col-sm-3" style='height:60%;'>
+      <div class="blog-block-box" style="padding:30px;">
+        @if($data['blog']->icon!='')
+        <img src="/assets/images/icon/{{$data['blog']['icon']}}" class="img-circle center-block" style="width:200px;height:200px">
+        @else
+        <img src="/assets/images/website/default_user.jpg" class="img-circle center-block" style="width:200px;height:200px">
+        @endif
+        <h3 class="text-center"> <strong>{{$data['user']['name']}}</strong>
+        </h3>
+      </div>
+      <div class="blog-block-line">
+        <div class="info text-center">
+          @if($data['blog']['sex']=='')
+          <p>性别：保密</p>
+          @else
+          <p>性别：{{$data['blog']['sex']}}</p>
+          @endif
+          <p>邮箱：{{$data['user']['email']}}</p>
+          <p>{{$data['blog']['introduction']}}</p>
+        </div>
+        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
+          <a href="{{URL('/blog/'.$data['user']['id'].'/admin')}}">
+            <ul>
+              <span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span> <font style="font-family:微软雅黑; font-size:16px"><b>主页</b></font> 
 
-			$('#submit').click(function(){
-				$('#content').attr('value', $('#summernote').summernote('code'));
-				$('#form').submit();
-			});
-		});
-	</script>
-	</div>
+            </ul>
+          </a>
+        </div>
+        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
+          <a href="/blog/{{$data['user']['id']}}/admin/list">
+            <ul>
+              <span class="glyphicon glyphicon-tasks" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span> <font style="font-family:微软雅黑; font-size:16px"><strong>文章列表</strong></font> 
 
-</body>
-</html>
+            </ul>
+          </a>
+        </div>
+
+        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
+
+          <a href="{{URL('/blog/'.$data['user']['id'].'/admin/uploads')}}">
+            <ul>
+              <span class="glyphicon glyphicon-arrow-up" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span>
+              <font style="font-family:微软雅黑; font-size:16px">
+                <strong>上传中心</strong>
+              </font>
+
+            </ul>
+          </a>
+        </div>
+        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
+
+          <a href="{{URL('/blog/'.$data['user']['id'].'/admin/set')}}">
+            <ul>
+              <span class="glyphicon glyphicon-cog" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span>
+              <font style="font-family:微软雅黑; font-size:16px">
+                <strong>个人设置</strong>
+              </font>
+
+            </ul>
+          </a>
+        </div>
+      </div>
+    </td>
+
+    <td class="col-sm-9">
+      <form action="{{ URL('/blog/'.$data['id'].'/admin/'.$data['article']->
+        id )}}" method="POST" >
+        <input type="hidden" name="_method" value="PUT">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="user_id" value="{{ $data['id'] }}">
+        <input type="text" name="title" value="{{ $data['article']->
+        title }}">
+        <div id="summernote">
+          {!! str_replace("_public_path/", asset(""), $data['article']->content) !!}
+        </div>
+        <button id="submit">Submit</button>
+        <input type="hidden" name="content" id="content"></form>
+      <script>
+    $(function(){
+      $('#summernote').summernote();
+
+      $('#submit').click(function(){
+        $('#content').attr('value', $('#summernote').summernote('code'));
+        $('#form').submit();
+      });
+    });
+  </script>
+
+    </td>
+
+  </tr>
+</table>
+@endsection

@@ -21,7 +21,7 @@ class UploadController extends Controller
         $blog=$user->blog;
         $files=$blog->files()->get();
         //$files= DB::table('files')->where('blog_id','=',$id)->paginate(15);
-    	$data = array('user' => $user,'files'=>$files);
+    	$data = array('user' => $user,'files'=>$files,'user'=>$user,'blog'=>$blog);
     	return view('blog.admin.filecenter')->withData($data);
     }
 
