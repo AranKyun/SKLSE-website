@@ -1,0 +1,124 @@
+body {
+	background-color: #e5e3e2;
+}
+
+.bigcarousel>img{
+	width: 100%;
+
+}
+
+.heading-pic {
+	margin-bottom: 50px;
+}
+
+.slide-block{
+	width:240px;
+	height:180px;
+	overflow: hidden;
+	margin-bottom: 40px;
+	background-size: cover;
+	}
+
+.slide-block>.blockfader{
+	width:240px;
+	height:180px;
+	background-color: rgba(0,0,0, 0.4);
+	position: relative;
+	top: -180px;
+	color: white;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.blogname {
+	width:240px;
+	height:30px;
+	position: relative;
+	top: 120px;
+	background-color: rgba(0,0,0, 0.4);
+	display: table-cell;
+	vertical-align: middle;
+	color: white;
+}
+
+
+.facuslide {
+	width:150px;
+	height:150px;
+	overflow: hidden;
+	background-size: cover;
+	}
+
+h3{
+	color: #003262;
+	padding-bottom: 20px;
+}
+
+.spotblock{
+	width: 100%；
+	margin-bottom: 20px;
+}
+
+.spotdate{
+	float: left;
+	display: inline-block;
+}
+
+.topblock{
+	background-color: #afc8e0;
+	font-size: 15px;
+	width: 60px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.downblock{
+	background-color: #fff;
+	font-size: 15px;
+	width: 60px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.spotcontent{
+	padding-left: 80px;
+	min-height: 70px;
+	font-size: 16px;
+}
+
+.moreee{
+	float: right;
+	padding-bottom: 30px;
+	color: #003262;
+	font-weight: bold;
+}
+
+#imgviewer{
+			height: 450px;
+			overflow: hidden;
+		}
+		.imgviewer-container{
+			height:100%;
+			padding: 0;
+		}
+		.imgviewer-img{
+			height: 100%;
+			background-size: cover;
+			position: relative;
+		}
+		.imgviewer-text{
+			height: 100%;
+			background-color: #003262;
+			background-image: url(../images/website/sakura.png);
+			background-size: cover;
+			color: white;
+			font-size: 25px;
+		}
+		.imgviewer-text>div{
+			position: relative;
+		}
+		.imgviewer-text>div>div{
+			display: table-cell;
+			height: 450px;
+			vertical-align: middle;
+		}

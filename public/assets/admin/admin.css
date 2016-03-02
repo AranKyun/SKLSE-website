@@ -1,0 +1,54 @@
+body {
+			font-family: "Microsoft Yahei";
+		}
+.pagination {
+	margin-top: 0px;
+}
+		.topbar {
+			padding-top: 10px;
+    		padding-bottom: 10px;
+    		background-color: #f5f5f5;
+    		border-bottom: 1px solid #e5e5e5;
+    		margin-bottom: 15px;
+		}
+
+		.left-margin-xlg {
+			margin-left: 40px;
+		}
+.left-margin-lg {
+	margin-left: 20px;
+}
+
+		.left-margin {
+			margin-left: 10px;
+		}
+.right-margin {
+	margin-right: 10px;
+}
+		.right-padding{
+			padding-right: 10px;
+		}
+
+		a.return-btn {
+			float: right;
+		}
+
+		.panel>.list-group>.selected-item {
+			border-left-color: #2e6da4;
+			border-left-style: solid;
+			border-left-width: 2px;
+			padding-left: 13px;
+			font-weight: bold;
+		}
+
+		.tab-cell {
+			display: table-column;
+		}
+
+		.list-group-item>.form-group.no-margin {
+			margin-bottom: 0px;
+		}
+
+		.popover {
+			font-family: "Microsoft Yahei";
+		}
