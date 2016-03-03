@@ -31,6 +31,7 @@
 							<span class="login">你好，{{ Auth::user()->name }}</span><a href="{{URL('/logout')}}" class="login">登出</a>
 							@else
 							<a href="{{ URL('/login') }}" class="login">用户登录</a>
+							<a href="{{ URL('/register') }}" class="login">注册</a>
 							@endif
 
 

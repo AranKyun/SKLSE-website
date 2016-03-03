@@ -18,7 +18,8 @@ SKLSE软件工程国家重点实验室
 			@foreach($config->news as $news)
 			@if($news->isCarousel == true)
 			<?php $num_carousel++;?>
-			<div class="imgviewer-img" src="{{ asset('assets/images/website/Uploaded/'.$news->imgFilename) }}"></div>
+			<a href="{{URL('news/'.$news->newsid)}}"><div class="imgviewer-img" src="{{ asset('assets/images/website/Uploaded/'.$news->imgFilename) }}"></div></a>
+
 			@endif
 			@endforeach
 			@if($num_carousel == 0)
@@ -36,9 +37,9 @@ SKLSE软件工程国家重点实验室
 
 		@foreach($config->news as $news)
 			@if($news->isCarousel == true)
-			<div>
+			<a href="{{URL('news/'.$news->newsid)}}">
 				<div>{{ $news->text }}</div>
-			</div>
+			</a>
 			@endif
 			@endforeach
 			@if($num_carousel == 0)
@@ -53,7 +54,7 @@ SKLSE软件工程国家重点实验室
 <script>
 
 	$(function(){
-		var imgObj = $("#imgviewer").children(".imgviewer-container").children(".imgviewer-img");
+		var imgObj = $("#imgviewer").children(".imgviewer-container").children().children(".imgviewer-img");
 		var textObj = $("#imgviewer").children(".imgviewer-text").children();
 
 		var alter_num = imgObj.length;
@@ -112,12 +113,12 @@ SKLSE软件工程国家重点实验室
 		});
 
 		$(".slide-block").mouseenter(function(){
-				$(this).children(".blockfader").stop(true);
-				$(this).children(".blockfader").animate({top:"0"}, "fast");
+				$(this).children().eq(0).children(".blockfader").stop(true);
+				$(this).children().eq(0).children(".blockfader").animate({top:"0"}, "fast");
 			});
 			$(".slide-block").mouseleave(function(){
-				$(this).children(".blockfader").stop(true);
-				$(this).children(".blockfader").animate({top:"-180px"}, "fast");
+				$(this).children().eq(0).children(".blockfader").stop(true);
+				$(this).children().eq(0).children(".blockfader").animate({top:"-180px"}, "fast");
 			});
 	});
 </script>
@@ -146,7 +147,7 @@ SKLSE软件工程国家重点实验室
 		<?php $num_news++;?>
 		<div class="col-sm-6">
 			<div class="slide-block center-block" style="background-image: url({{ asset('assets/images/website/Uploaded/'.$news->imgFilename) }});">
-					<div class="blockfader">{{ $news->text }}</div>
+					<a href="{{URL('/news/'.$news->newsid)}}"><div class="blockfader">{{ $news->text }}</div></a>
 				</div>
 		</div>
 		@endif
@@ -167,22 +168,22 @@ SKLSE软件工程国家重点实验室
 		@endif
 
 		</div>
-		<a href="#" class="moreee">>>MORE</a>
+		<a href="{{URL('/news')}}" class="moreee">>>MORE</a>
 
-		<h3> <b>FACULTY</b>
+		<h3> <b>BLOG</b>
 		</h3>
 
 			<div class="row text-center">
 		@for($i = 0; $i < 3; $i++)
 		@if($config->blogs[$i] != null)
-			<div class="col-md-4">
+			<div class="col-sm-4">
 				<div class="blog center-block">
 					<img src="img/facu.jpg" alt="">
 					<div class="blockfader"></div>
 			</div>
 		</div>
 		@else
-			<div class="col-md-4">
+			<div class="col-sm-4">
 				<div class="facuslide center-block" style="background-image: url({{ asset('assets/images/website/default_user.jpg') }})">
 
 					<div class="blogname">请设置用户</div>

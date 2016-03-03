@@ -19,7 +19,7 @@ body {
 	background-size: cover;
 	}
 
-.slide-block>.blockfader{
+.slide-block .blockfader{
 	width:240px;
 	height:180px;
 	background-color: rgba(0,0,0, 0.4);
@@ -28,6 +28,9 @@ body {
 	color: white;
 	display: table-cell;
 	vertical-align: middle;
+}
+.slide-block>a:hover{
+	text-decoration: none;
 }
 
 .blogname {
@@ -114,10 +117,15 @@ h3{
 			color: white;
 			font-size: 25px;
 		}
-		.imgviewer-text>div{
+		.imgviewer-text>a{
 			position: relative;
+			display: block;
+			color: white;
 		}
-		.imgviewer-text>div>div{
+		.imgviewer-text>a:hover{
+			text-decoration: none;
+		}
+		.imgviewer-text>a>div{
 			display: table-cell;
 			height: 450px;
 			vertical-align: middle;
