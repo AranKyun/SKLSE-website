@@ -80,33 +80,33 @@
 			<div class="col-md-4">
 				<ul class="fastlink">
 					<li>
-						<a href="">软件工程国家重点实验室</a>
+						<a href="/">软件工程国家重点实验室</a>
 					</li>
 					<li>
-						<a href="">实验室概况</a>
+						<a href="/lab">实验室概况</a>
 						<ul>
 							<li>
-								<a href="">实验室简介</a>
+								<a href="/lab">实验室简介</a>
 							</li>
 							<li>
-								<a href="">基础设施</a>
+								<a href="/lab/facility">基础设施</a>
 							</li>
 							<li>
-								<a href="">人才培养</a>
+								<a href="/lab/talent">人才培养</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a href="">科学研究</a>
+						<a href="/study">科学研究</a>
 						<ul>
 							<li>
-								<a href="">研究队伍</a>
+								<a href="/study">研究队伍</a>
 							</li>
 							<li>
-								<a href="">课题研究</a>
+								<a href="/study/project">课题研究</a>
 							</li>
 							<li>
-								<a href="">研究成果</a>
+								<a href="/study/achieve">研究成果</a>
 							</li>
 						</ul>
 					</li>
@@ -115,25 +115,25 @@
 			<div class="col-md-4">
 				<ul class="fastlink">
 					<li>
-						<a href="">工作动态</a>
+						<a href="/news">工作动态</a>
 						<ul>
 							<li>
-								<a href="">新闻动态</a>
+								<a href="{{URL('/news?tag=全部动态')}}">新闻动态</a>
 							</li>
 							<li>
-								<a href="">通知公告</a>
+								<a href="{{URL('/news?tag=通知公告')}}">通知公告</a>
 							</li>
 							<li>
-								<a href="">人才招聘</a>
+								<a href="{{URL('/news?tag=人才招聘')}}">人才招聘</a>
 							</li>
 							<li>
-								<a href="">举办会议</a>
+								<a href="{{URL('/news?tag=举办会议')}}">举办会议</a>
 							</li>
 							<li>
-								<a href="">学术报告</a>
+								<a href="{{URL('/news?tag=学术报告')}}">学术报告</a>
 							</li>
 							<li>
-								<a href="">外出交流</a>
+								<a href="{{URL('/news?tag=外出交流')}}">外出交流</a>
 							</li>
 						</ul>
 					</li>

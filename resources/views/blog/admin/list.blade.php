@@ -27,45 +27,36 @@
           <p>{{$data['blog']['introduction']}}</p>
         </div>
 
-        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
+ <div class="selection-btn text-center">
           <a href="{{URL('/blog/'.$data['user']['id'].'/admin')}}">
-            <ul>
-              <span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span> <font style="font-family:微软雅黑; font-size:16px"><strong>主页</strong></font> 
-
-            </ul>
+            <h4 class="container-fluid">
+              <div class="col-xs-4 text-right"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></div>
+              <div class="col-xs-8"><strong>主页</strong></div>
+            </h4>
           </a>
         </div>
-        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
-          <a href="{{URL('/blog/'.$data['user']['id'].'/admin/list')}}">
-            <ul>
-              <span class="glyphicon glyphicon-tasks" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span> <font style="font-family:微软雅黑; font-size:16px"><strong>文章列表</strong></font> 
-
-            </ul>
+        <div class="selection-btn text-center">
+          <a href="{{URL('/blog/'.$data['user']['id'].'/admin')}}">
+          <h4 class="container-fluid">
+              <div class="col-xs-4 text-right"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span></div>
+              <div class="col-xs-8"><strong>文章列表</strong></div>
+            </h4>
           </a>
         </div>
-
-        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
-
+        <div class="selection-btn text-center">
           <a href="{{URL('/blog/'.$data['user']['id'].'/admin/uploads')}}">
-            <ul>
-              <span class="glyphicon glyphicon-cog" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span>
-              <font style="font-family:微软雅黑; font-size:16px">
-                <strong>上传中心</strong>
-              </font>
-
-            </ul>
+          <h4 class="container-fluid">
+              <div class="col-xs-4 text-right"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></div>
+              <div class="col-xs-8"><strong>上传中心</strong></div>
+            </h4>
           </a>
         </div>
-        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
-
+        <div class="selection-btn text-center">
           <a href="{{URL('/blog/'.$data['user']['id'].'/admin/set')}}">
-            <ul>
-              <span class="glyphicon glyphicon-arrow-up" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span>
-              <font style="font-family:微软雅黑; font-size:16px">
-                <strong>个人设置</strong>
-              </font>
-
-            </ul>
+          <h4 class="container-fluid">
+              <div class="col-xs-4 text-right"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></div>
+              <div class="col-xs-8"><strong>个人设置</strong></div>
+            </h4>
           </a>
         </div>
       </div>

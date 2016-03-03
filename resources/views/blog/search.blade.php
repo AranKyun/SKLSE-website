@@ -31,33 +31,40 @@
           <p>{{$data['blog']['introduction']}}</p>
         </div>
 
-        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
+      
+        <div class="selection-btn text-center">
           <a href="/blog/{{$data['user']['id']}}/home">
-            <ul>
-              <span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span> <font style="font-family:微软雅黑; font-size:16px"><strong>主页</strong></font> 
-
-            </ul>
+            <h4 class="container-fluid">
+              <div class="col-xs-4 text-right">
+                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+              </div>
+              <div class="col-xs-8"> <strong>主页</strong>
+              </div>
+            </h4>
           </a>
         </div>
-        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
+        <div class="selection-btn text-center">
           <a href="/blog/{{$data['user']['id']}}/home/articles">
-            <ul>
-              <span class="glyphicon glyphicon-tasks" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span> <font style="font-family:微软雅黑; font-size:16px"><strong>文章列表</strong></font> 
-
-            </ul>
+            <h4 class="container-fluid">
+              <div class="col-xs-4 text-right">
+                <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+              </div>
+              <div class="col-xs-8">
+                <strong>文章列表</strong>
+              </div>
+            </h4>
           </a>
         </div>
-
-        <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
-
+        <div class="selection-btn text-center">
           <a href="{{URL('/blog/'.$data['user']['id'].'/home/download')}}">
-            <ul>
-              <span class="glyphicon glyphicon-arrow-down" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span>
-              <font style="font-family:微软雅黑; font-size:16px">
+            <h4 class="container-fluid">
+              <div class="col-xs-4 text-right">
+                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+              </div>
+              <div class="col-xs-8">
                 <strong>下载中心</strong>
-              </font>
-
-            </ul>
+              </div>
+            </h4>
           </a>
         </div>
       </div>

@@ -48,7 +48,7 @@
 						</li>
 
 						<li>
-							<a href="#">工作动态</a>
+							<a href="{{URL('/news')}}">工作动态</a>
 						</li>
 					</ul>
 

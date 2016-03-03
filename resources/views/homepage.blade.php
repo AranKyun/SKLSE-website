@@ -167,7 +167,7 @@ SKLSE软件工程国家重点实验室
 		@endif
 
 		</div>
-		<a href="#" class="moreee">>>MORE</a>
+		<a href="/news" class="moreee">>>MORE</a>
 
 		<h3> <b>FACULTY</b>
 		</h3>
@@ -204,7 +204,7 @@ SKLSE软件工程国家重点实验室
 		@endif
 		@endfor
 	</div>
-	<a href="#" class="moreee">>>MORE</a>
+	<a href="/blog" class="moreee">>>MORE</a>
 
 </div>
 <div class="col-md-offset-1 col-md-4">
@@ -232,7 +232,7 @@ SKLSE软件工程国家重点实验室
 	@endif
 
 	<br>
-	<a href="#" class="moreee">>>MORE</a>
+	<a href="/news" class="moreee">>>MORE</a>
 </div>
 </div>
 @endsection
