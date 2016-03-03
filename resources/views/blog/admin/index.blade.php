@@ -34,7 +34,7 @@
         <div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
           <a href="{{URL('/blog/'.$data['user']['id'].'/admin')}}">
             <ul>
-              <span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span> <font style="font-family:微软雅黑; font-size:16px"><b>主页</b></font> 
+              <span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span> <font style="font-family:微软雅黑; font-size:16px"><strong>主页</strong></font> 
 
             </ul>
           </a>
@@ -89,7 +89,7 @@
           &nbsp;{{ $article->title }}
         </div>
         <div class="bbsubtittle">{{ $article->created_at }}</div>
-        <div class="bbabstract">此处应有博文简介，但是还没有实现</div>
+        <div class="bbabstract">{{ mb_substr(str_replace('&nbsp;', ' ', strip_tags($article->content)), 0, 100)."..." }}</div>
         <hr class="smaller">
         <a href="{{URL('/blog/'.$data['user']['id'].'/admin/'.$article->id )}}" class="aticlemore">点击查看更多>></a>
       </div>

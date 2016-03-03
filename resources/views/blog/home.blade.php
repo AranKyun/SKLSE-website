@@ -34,7 +34,7 @@
 				<div class="alert alert-danger" role="alert" style='background-color: #f9f9f9;margin-top: 0px;border-bottom: 1px solid #ddd;border-top:1px solid #ddd;'>
 					<a href="/blog/{{$data['user']['id']}}/home">
 						<ul>
-							<span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span> <font style="font-family:微软雅黑; font-size:16px"><b>主页</b></font> 
+							<span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp;&nbsp;&nbsp;</span> <font style="font-family:微软雅黑; font-size:16px"><strong>主页</strong></font> 
 
 						</ul>
 					</a>
@@ -80,7 +80,7 @@
 					&nbsp;{{$singlearticle->title}}
 				</div>
 				<div class="bbsubtittle">{{$singlearticle->created_at}}</div>
-				<div class="bbabstract">此处应有文章摘要，然而还没做出来</div>
+				<div class="bbabstract">{{ mb_substr(str_replace('&nbsp;', ' ', strip_tags($singlearticle->content)), 0, 100)."..." }}</div>
 				<hr class="smaller">
 				<a href="{{URL('/blog/'.$data['user']['id'].'/home/'.$singlearticle->id)}}" class="aticlemore">点击查看更多>></a>
 				@endforeach
