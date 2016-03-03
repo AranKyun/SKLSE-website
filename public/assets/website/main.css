@@ -225,3 +225,14 @@ background-color: #ff99cc;
 
 	
 }
+
+.navbar-nav>li>a.blog-btn {
+	padding: 0px;
+	display: inline;
+}
+
+.selection-btn {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #eee;
+}

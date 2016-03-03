@@ -51,13 +51,28 @@
 							<a href="#">工作动态</a>
 						</li>
 					</ul>
-					<form name="search" method="GET" action="{{url('blog/'.$data['user']['id'].'/home/search')}}" class="navbar-form navbar-right" role="search">
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><form name="search" method="GET" action="{{url('blog/'.$data['user']['id'].'/home/search')}}" class="navbar-form" role="search">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="user_id" value="{{ $data['user']['id'] }}">
 						<div class="form-group">
 							<input name="searchtit" type="text" class="form-control" placeholder="Search" required="required"></div>
 						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
+					</form></li>
+					@if(Auth::check())
+					<li class="navbar-text">你好,
+					@if(Auth::user()->isTeacher())
+					<a href="{{URL('/blog/'.Auth::user()->id.'/home')}}" class="blog-btn">{{ Auth::user()->name }}</a>
+					@else
+					{{ Auth::user()->name }}
+					@endif
+					</li>
+					<li><a href="{{URL('/logout')}}">登出</a></li>
+					@else
+					<li><a href="{{URL('/login')}}">登录</a></li>
+					@endif
+					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
 			</div>

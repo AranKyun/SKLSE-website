@@ -1,7 +1,7 @@
-body{
-  color: #000;
-    font-family: "微软雅黑";
-    font-size: 17px;
+
+
+a:link {
+  text-decoration: none;
 }
 
 .top-header{
@@ -98,14 +98,14 @@ box-shadow: 0 0 4px #777;
 }
 
 .allcontent {
-  padding-top: 25px;
+  padding-top: 15px;
 }
 
 .ltittle{
 	font-size: 18px;
 	color: #003262;
   padding: 10px 20px;
-  margin: 0 0 20px;
+  margin: 10px 0 30px;
   font-size: 18px;
   border-left:5px solid #003262;
 }
@@ -128,12 +128,6 @@ box-shadow: 0 0 4px #777;
   margin-top: 70px;
 }
 
-h4{
-  color: #fff;
-  padding-top: 30px;
-  padding-bottom: 20px;
-}
-
 .fastlink{
   color: #d1d4d6;
   font-size: 15px;
@@ -141,10 +135,6 @@ h4{
   padding-bottom: 30px;
 }
 
-.fastlink a {
-    color: #d1d4d6;
-
-}
 .fastlink a:visited{
   color: #d1d4d6;
 }
@@ -174,4 +164,72 @@ h4{
   border-radius: 4px;
   margin-top: 5px;
   margin-bottom: 25px;
+}
+
+
+
+
+.viewblock-a {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.viewblock-b {
+  color: #fff;
+  font-size: 13px;
+  text-align: right;
+  font-weight: lighter;
+}
+
+a.viewblock:hover {
+  color
+}
+
+.all-viewblock {
+  width: 60px;
+  height: 60px;
+  padding: 3px;
+  background-color: #003262;
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.blockcover {
+  position: absolute;
+}
+
+
+.trendsoverview {
+  padding-left: 80px;
+}
+
+.subtittle {
+  color: #999;
+  text-align: left;
+  font-size: 10px;
+}
+
+.attract {
+  height: 50px;
+  color: #666;
+  font-size: 14px;
+}
+
+
+.newsblock {
+  position: relative;
+  min-height: 100px;
+  padding-bottom: 30px;
+}
+
+.news-content {
+  padding-top: 25px;
+}
+
+.media-object {
+  width: 64px;
+  height: 64px;
 }
