@@ -33,7 +33,7 @@
         </div>
 
                <div class="selection-btn text-center">
-          <a href="{{URL('/blog/'.$data['user']['id'].'/admin')}}">
+          <a href="{{URL('/blog/'.$data['user']['id'].'/admin/list')}}">
             <h4 class="container-fluid">
               <div class="col-xs-4 text-right"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></div>
               <div class="col-xs-8"><strong>主页</strong></div>
